@@ -7,9 +7,47 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+body {
+  color: #2a3d45;
+  background: #f0edee;
+}
+
 a,
 ul,
-li {
+li,
+button {
   list-style: none;
   text-decoration: none;
+  outline: none;
+}
+
+.job-btn {
+  background: transparent;
+  border-color: transparent;
+  text-transform: capitalize;
+  font-size: 1.25rem;
+  letter-spacing: 0.1rem;
+  margin: 0 0.5rem;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  line-height: 1;
+  border: none;
+  color: #f0edee;
+}
+
+.job-btn:hover {
+  color: #f0edee;
+  box-shadow: 0 2px #ff5a5f;
+}
+
+.active-btn {
+  color: #ff5a5f;
+  box-shadow: 0 2px #ff5a5f;
+}
+
+@media screen and (min-width: 992px) {
+  .active-btn {
+    box-shadow: -2px 0 #ff5a5f;
+  }
 }
