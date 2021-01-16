@@ -19,6 +19,10 @@ const AboutTitle = styled.div`
   margin-bottom: 4rem;
   text-align: center;
   letter-spacing: 2;
+
+  @media screen and (max-width: 768px) {
+      margin-top: 6rem;
+  }
 `
 
 const AboutTitleH1 = styled.h1`

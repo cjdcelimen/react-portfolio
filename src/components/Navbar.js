@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link as LinkR } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
+import { Link as LinkR } from 'react-router-dom';
 import { FaAlignRight } from 'react-icons/fa';
 import { animateScroll as scroll } from 'react-scroll';
 import { motion } from 'framer-motion';
+import Contact from './Contact';
 
 const Nav = styled(motion.nav)`
-    background: ${({ scrollNav }) => (scrollNav ? '#f0edee' : '#f0edee')};
+    background: #f0edee;
     height: 80px;
     margin-top: -80px;
     display: flex;
@@ -45,6 +46,8 @@ const NavbarLogo = styled(LinkR)`
     text-decoration: none;
 
     &:hover {
+        transform: scale(1.1);
+        transition: 0.2s ease-in-out;
         color: #ff5a5f;
     }
 `
@@ -94,6 +97,8 @@ const NavLinks = styled(LinkS)`
     }
 
     &:hover {
+        transform: scale(1.1);
+        transition: 0.2s ease-in-out;
         color: #ff5a5f;
         border-bottom: 2px solid #ff5a5f;
     }
@@ -108,7 +113,9 @@ const NavBtn = styled.nav`
     }
 `
 
-const NavBtnLink = styled(LinkR)`
+const NavContact = styled.button`
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
     border-radius: 50px;
     background: #2A3D45;
     white-space: nowrap;
@@ -125,11 +132,13 @@ const NavBtnLink = styled(LinkR)`
         transition: all 0.2s ease-in-out;
         background: #ff5a5f;
         color: #f0edee;
+        transform: scale(1.1);
     }
 `
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({ toggle, showModal, setShowModal, openModal }) => {
     const [scrollNav, setScrollNav] = useState(false);
+
     const toggleHome = () => {
         scroll.scrollToTop();
     }
@@ -181,7 +190,8 @@ const Navbar = ({ toggle }) => {
                         </NavItem>
                     </NavMenu>
                     <NavBtn>
-                        <NavBtnLink>Contact</NavBtnLink>
+                        <NavContact onClick={openModal}>Contact</NavContact>
+                        <Contact showModal={showModal} setShowModal={setShowModal}/>
                     </NavBtn>
                 </NavbarContainer>
             </Nav>

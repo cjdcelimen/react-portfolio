@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useCallback} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { FaTimes } from 'react-icons/fa';
 import { SiHtml5, SiCss3, SiJavascript, SiReact } from 'react-icons/si';
@@ -16,7 +16,7 @@ const ContactContainer = styled.div`
 const ModalContainer = styled.div`
   position: relative;
   margin: 5rem auto;
-  width: 80%;
+  width: 100%;
   height: 800px;
   background: white;
   display: flex;
@@ -62,15 +62,14 @@ const PanelTwo = styled.div`
 const Close = styled(FaTimes)`
   position: absolute;
   right: 0;
-  font-size: 3rem;
+  font-size: 48px;
   padding-right: 16px;
   padding-top: 16px;
   color: #ff5a5f;
 
   &:hover {
-    transform: scale(1.3);
-    transition: 0.2s ease-in-out;
-    color: #ff5a5f;
+      transform: scale(1.3);
+      transition: 0.3s
   }
 `
 
@@ -141,30 +140,11 @@ const AboutReact = styled(SiReact)`
   }
 `
 
-const Contact = ({showModal, setShowModal}) => {
-  const modalRef = useRef();
-
-  const closeModal = e => {
-      if (modalRef.current === e.target) {
-          setShowModal(false);
-      }
-  }
-  
-  const keyPress = useCallback(e => {
-    if (e.key === 'Escape' && showModal) {
-      setShowModal(false)
-    }
-  }, [setShowModal, showModal])
-
-  useEffect(() => {
-    document.addEventListener('keydown', keyPress);
-    return () => document.removeEventListener('keydown', keyPress)
-  }, [keyPress]);
-
+const SidebarContact = ({showContact, setShowContact}) => {
   return (
       <>
-          {showModal && (
-              <ContactContainer ref={modalRef} onClick={closeModal}>
+          {showContact && (
+              <ContactContainer>
                   <ModalContainer>
                       <PanelOne>
                           <AboutH2>Some Nuggets.</AboutH2>
@@ -182,7 +162,7 @@ const Contact = ({showModal, setShowModal}) => {
                               <AboutReact />
                           </AboutIcons>
                       </PanelTwo>
-                      <Close onClick={() => setShowModal(false)} />
+                      <Close onClick={() => setShowContact(false)} />
                   </ModalContainer>
               </ContactContainer>
           )}
@@ -190,4 +170,4 @@ const Contact = ({showModal, setShowModal}) => {
   )
 }
 
-export default Contact
+export default SidebarContact

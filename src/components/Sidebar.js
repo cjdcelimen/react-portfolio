@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaTimes } from 'react-icons/fa';
 import { Link as LinkS } from 'react-scroll';
-import { Link as LinkR } from 'react-router-dom';
+import SidebarContact from './SidebarContact';
 
 const SidebarContainer = styled.div`
     position: fixed;
     z-index: 999;
     width: 100%;
-    height: 100%;
+    height: 50%;
     background: #2a3d45;
     display: grid;
     align-items: center;
@@ -23,7 +23,8 @@ const CloseIcon = styled(FaTimes)`
     color: #f0edee;
 
     &:hover {
-        color: #FF5A5F;
+        color: #ff5A5f;
+        transform: scale(1.3);
         transition: 0.2s ease-in-out;
     }
 `
@@ -43,6 +44,7 @@ const SidebarWrapper = styled.div`
 `
 
 const SidebarMenu = styled.ul`
+    padding-top: 48px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 80px);
@@ -66,37 +68,42 @@ const SidebarLink = styled(LinkS)`
     cursor: pointer;
 
     &:hover {
-        color: #FF5A5F;
+        color: #ff5a5f;
         transition: 0.2s ease-in-out;
+        transform: scale(1.3);
     }
 `
 
-const SideBtnWrap = styled.div`
+const NavBtn = styled.nav`
     display: flex;
+    align-items: center;
     justify-content: center;
 `
 
-const SidebarRoute = styled(LinkR)`
+const NavContact = styled.button`
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
     border-radius: 50px;
     background: #f0edee;
     white-space: nowrap;
-    padding: 16px 64px;
+    padding: 10px 22px;
     color: #2a3d45;
     font-size: 16px;
     outline: none;
     border: none;
-    cursor: ponter;
+    cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
 
     &:hover {
         transition: all 0.2s ease-in-out;
-        background: #FF5A5F;
+        background: #ff5a5f;
         color: #f0edee;
+        transform: scale(1.3);
     }
 `
 
-const Sidebar = ({ isOpen, toggle }) => {
+const Sidebar = ({ isOpen, toggle, showContact, setShowContact, openContact }) => {
     return (
         <SidebarContainer isOpen={isOpen}>
             <Icon onClick={toggle}>
@@ -104,16 +111,17 @@ const Sidebar = ({ isOpen, toggle }) => {
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink to="experience" onClick={toggle}>
+                    <SidebarLink to="about" onClick={toggle}>
                         Experience
                     </SidebarLink>
                     <SidebarLink to="projects" onClick={toggle}>
                         Projects
                     </SidebarLink>
+                    <NavBtn>
+                        <NavContact onClick={openContact}>Contact</NavContact>
+                        <SidebarContact showContact={showContact} setShowContact={setShowContact}/>
+                    </NavBtn>
                 </SidebarMenu>
-                <SideBtnWrap>
-                    <SidebarRoute to="/contact">Contact</SidebarRoute>
-                </SideBtnWrap>
             </SidebarWrapper>
         </SidebarContainer>
     )

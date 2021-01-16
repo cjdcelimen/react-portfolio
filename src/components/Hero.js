@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { MdKeyboardArrowRight, MdArrowForward } from 'react-icons/md';
 import { Button } from './ButtonScrollElement';
+import { motion } from 'framer-motion';
 
 const HeroContainer = styled.div`
     background: #f0edee;
@@ -25,17 +25,6 @@ const HeroContainer = styled.div`
     }
 `
 
-const HeroBg = styled.div`
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-`
-
 const HeroContent = styled.div`
     z-index: 3;
     max-width: 1200px;
@@ -46,7 +35,7 @@ const HeroContent = styled.div`
     align-items: center;
 `
 
-const HeroH1 = styled.h1`
+const HeroH1 = styled(motion.h1)`
     color: #2a3d45;
     font-size: 3rem;
     text-align: center;
@@ -61,7 +50,7 @@ const HeroH1 = styled.h1`
     }
 `
 
-const HeroP = styled.p`
+const HeroP = styled(motion.p)`
     margin-top: 24px;
     color: #2a3d45;
     font-size: 1.5rem;
@@ -76,21 +65,13 @@ const HeroP = styled.p`
     }
 `
 
-const HeroBtnWrapper = styled.div`
+const HeroBtnWrapper = styled(motion.div)`
     margin-top: 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
-`
-
-const ArrowForward = styled(MdArrowForward)`
-    margin-left: 8px;
-    font-size: 20px;
-`
-
-const ArrowRight = styled(MdKeyboardArrowRight)`
-    margin-left: 8px;
-    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
 `
 
 const Hero = () => {
@@ -102,13 +83,22 @@ const Hero = () => {
 
     return (
         <HeroContainer id='home'>
-            <HeroBg>
-                
-            </HeroBg>
             <HeroContent>
-                <HeroH1>Christopher Celimen</HeroH1>
-                <HeroP>Frontend Developer from Manila, PH</HeroP>
-                <HeroBtnWrapper>
+                <HeroH1
+                    initial={{ x: '-100vw' }}
+                    animate={{ x: 0 }}
+                    transition={{ delay: 0.3 }}
+                >Christopher Celimen</HeroH1>
+                <HeroP
+                    initial={{ x: '100vw' }}
+                    animate={{ x: 0 }}
+                    transition={{ delay: 0.6 }}
+                >Frontend Developer from Manila, PH</HeroP>
+                <HeroBtnWrapper
+                    initial={{ x: '-100vw' }}
+                    animate={{ x: 0 }}
+                    transition={{ delay: 0.9 }}
+                >
                     <Button
                         to="projects"
                         onMouseEnter={onHover}
@@ -122,7 +112,7 @@ const Hero = () => {
                         offset={-80}
                         activeClass='active'
                     >
-                        See my work {hover ? <ArrowForward /> : <ArrowRight />}
+                        See my work
                     </Button>
                 </HeroBtnWrapper>
             </HeroContent>

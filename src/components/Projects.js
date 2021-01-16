@@ -7,6 +7,7 @@ import { HiArrowRight } from 'react-icons/hi';
 
 const ProjectsContainer = styled.div`
   padding: 4rem 0;
+  min-height: 100vh;
 `
 
 const ProjectsCenter = styled.div`
@@ -64,6 +65,7 @@ const ProjectH2 = styled.h2`
 const ProjectP = styled.p`
   padding: 1rem;
   letter-spacing: 0.1rem;
+  line-height: 1.5;
 `
 
 const ProjectSub = styled.h3`
@@ -114,7 +116,7 @@ export const Projects = () => {
               <ProjectSub>View live project</ProjectSub>
               <a href="//cjdecommerce.netlify.app/" target="cjdecommerce" aria-label="cjdecommerce"><GoTo /></a>
             </ViewProject>
-            <ProjectP>Powered with Stripe, Commerce.js, and Material UI, this functional ecommerce website allows you to modify your cart from a wide range of products with ease.</ProjectP>
+            <ProjectP>Powered with <span>Stripe, Commerce.js, and Material UI,</span> this functional ecommerce website allows you to modify your cart from a wide range of products with ease.</ProjectP>
           </Project>
           <Project>
             <ProjectImg src={Project2} alt="money" />
@@ -123,7 +125,7 @@ export const Projects = () => {
               <ProjectSub>View live project</ProjectSub>
               <a href="//cjdmoney.netlify.app/" target="cjdmoney" aria-label="cjdmoney"><GoTo /></a>
             </ViewProject>
-            <ProjectP>A smooth responsive website for a very profitable stock investment company with the help of react scroll.</ProjectP>
+            <ProjectP>A <span>smooth responsive</span> website for a very profitable stock investment company with the help of <span>react scroll</span>.</ProjectP>
           </Project>
           <Project>
             <ProjectImg src={Project3} alt="breaking" />
@@ -132,7 +134,7 @@ export const Projects = () => {
               <ProjectSub>View live project</ProjectSub>
               <a href="//cjdbreakingbad.netlify.app/" target="cjdbreakingbad" aria-label="cjdbreakingbad"><GoTo /></a>
             </ViewProject>
-            <ProjectP>Love science b? Through async await let's learn more about one of the best, if not the best, series of all time. Forget about knocking before viewing the site, Mr. White will do that for you.</ProjectP>
+            <ProjectP>Love science? Through <span>async await</span>, learn more about one of the best, if not the best, series of all time. Forget <span>knocking</span> before visiting the site, <span>Mr. White</span> will do that for you.</ProjectP>
           </Project>
         </ProjectsCenter>
       </ProjectsContainer>

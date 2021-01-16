@@ -21,6 +21,11 @@ button {
   outline: none;
 }
 
+span {
+  color: #ff5a5f;
+  font-weight: bold;
+}
+
 .job-btn {
   background: transparent;
   border-color: transparent;
