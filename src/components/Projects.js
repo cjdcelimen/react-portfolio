@@ -1,15 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import Project1 from '../images/ecommerce.png';
 import Project2 from '../images/money.png';
 import Project3 from '../images/breaking.png';
+import { HiArrowRight } from 'react-icons/hi';
 
 const ProjectsContainer = styled.div`
   padding: 4rem 0;
-
-  @media screen and (min-width: 676px) {
-      height: 100vh;
-  }
 `
 
 const ProjectsCenter = styled.div`
@@ -28,8 +25,8 @@ const ProjectsCenter = styled.div`
 `
 
 const Project = styled.div`
-  background-color: #2a3d45;
-  color: #f0edee;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  color: #2a3d45;
   margin-bottom: 2rem;
   text-align: center;
   border-radius: 1rem;
@@ -58,7 +55,7 @@ const ProjectImg = styled.img`
   border-radius: 0.5rem 0.5rem 0 0;
 `
 
-const ProjectH4 = styled.h4`
+const ProjectH2 = styled.h2`
   padding: 1rem;
   letter-spacing: 0.1rem;
   line-height: 1.25;
@@ -69,7 +66,39 @@ const ProjectP = styled.p`
   letter-spacing: 0.1rem;
 `
 
+const ProjectSub = styled.h3`
+  padding: 1rem;
+  letter-spacing: 0.1rem;
+`
+
+const GoTo = styled(HiArrowRight)`
+  margin-left: 16px;
+  font-size: 30px;
+
+  &:hover {
+      color: #ff5a5f;
+      transform: scale(1.5);
+      transition: 0.3s;
+  }
+`
+
+const ViewProject = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+  text-decoration: none;
+  color: #2a3d45;
+  }
+`
+
 export const Projects = () => {
+    const [hover, setHover] = useState(false)
+
+    const onHover = () => {
+        setHover(!hover)
+    }
 
   return (
     <>
@@ -80,18 +109,30 @@ export const Projects = () => {
         <ProjectsCenter>
           <Project>
             <ProjectImg src={Project1} alt="ecommerce" />
-            <ProjectH4>eCommerce</ProjectH4>
-            <ProjectP>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure inventore tempore veniam debitis blanditiis! Animi atque recusandae illo itaque perferendis.</ProjectP>
+            <ProjectH2>eCommerce</ProjectH2>
+            <ViewProject>
+              <ProjectSub>View live project</ProjectSub>
+              <a href="//cjdecommerce.netlify.app/" target="cjdecommerce" aria-label="cjdecommerce"><GoTo /></a>
+            </ViewProject>
+            <ProjectP>Powered with Stripe, Commerce.js, and Material UI, this functional ecommerce website allows you to modify your cart from a wide range of products with ease.</ProjectP>
           </Project>
           <Project>
             <ProjectImg src={Project2} alt="money" />
-            <ProjectH4>money</ProjectH4>
-            <ProjectP>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex perspiciatis magni consectetur veniam, dignissimos sunt nesciunt labore maxime earum! Distinctio eligendi autem non voluptate adipisci eum ab, rerum facere aperiam.</ProjectP>
+            <ProjectH2>money</ProjectH2>
+            <ViewProject>
+              <ProjectSub>View live project</ProjectSub>
+              <a href="//cjdmoney.netlify.app/" target="cjdmoney" aria-label="cjdmoney"><GoTo /></a>
+            </ViewProject>
+            <ProjectP>A smooth responsive website for a very profitable stock investment company with the help of react scroll.</ProjectP>
           </Project>
           <Project>
             <ProjectImg src={Project3} alt="breaking" />
-            <ProjectH4>Breaking Bad API</ProjectH4>
-            <ProjectP>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, voluptatibus.</ProjectP>
+            <ProjectH2>Breaking Bad API</ProjectH2>
+            <ViewProject>
+              <ProjectSub>View live project</ProjectSub>
+              <a href="//cjdbreakingbad.netlify.app/" target="cjdbreakingbad" aria-label="cjdbreakingbad"><GoTo /></a>
+            </ViewProject>
+            <ProjectP>Love science b? Through async await let's learn more about one of the best, if not the best, series of all time. Forget about knocking before viewing the site, Mr. White will do that for you.</ProjectP>
           </Project>
         </ProjectsCenter>
       </ProjectsContainer>

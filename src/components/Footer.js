@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaYoutube, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin} from 'react-icons/fa';
 import { animateScroll as scroll } from 'react-scroll';
 
 const FooterContainer = styled.footer`
@@ -60,7 +60,7 @@ const SocialIcons = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 240px;
+    width: 100px;
 `
 
 const SocialIconLink = styled.a`
@@ -86,19 +86,10 @@ const Footer = () => {
                             <SocialLogo to='/' onClick={toggleHome}>cjdc</SocialLogo>
                             <WebsiteRights>© {new Date().getFullYear()} Christopher Celimen</WebsiteRights>
                             <SocialIcons>
-                                <SocialIconLink href="//www.facebook.com/" target="facebook" aria-label="Facebook">
-                                    <FaFacebook />
+                                <SocialIconLink href="//github.com/cjdcelimen/" target="github" aria-label="Github">
+                                    <FaGithub />
                                 </SocialIconLink>
-                                <SocialIconLink href="//www.instagram.com/" target="instagram" aria-label="Instagram">
-                                    <FaInstagram />
-                                </SocialIconLink>
-                                <SocialIconLink href="//www.youtube.com/" target="youtube" aria-label="Youtube">
-                                    <FaYoutube />
-                                </SocialIconLink>
-                                <SocialIconLink href="//www.twitter.com/" target="twitter" aria-label="Twitter">
-                                    <FaTwitter />
-                                </SocialIconLink>
-                                <SocialIconLink href="//www.linkedin.com/" target="linkedin" aria-label="Linkedin">
+                                <SocialIconLink href="//linkedin.com/in/christopher-john-celimen-556012133/" target="linkedin" aria-label="Linkedin">
                                     <FaLinkedin />
                                 </SocialIconLink>
                             </SocialIcons>
