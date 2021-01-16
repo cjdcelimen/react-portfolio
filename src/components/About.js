@@ -94,6 +94,7 @@ const JobDescP = styled.p`
 `
 
 export const About = () => {
+  // eslint-disable-next-line
   const [jobs, setJobs] = useState(experience)
   const [value, setValue] = useState(0)
   const { title, duties, company, dates } = jobs[value]

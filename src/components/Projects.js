@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Project1 from '../images/ecommerce.png';
 import Project2 from '../images/money.png';
@@ -96,11 +96,6 @@ const ViewProject = styled.div`
 `
 
 export const Projects = () => {
-    const [hover, setHover] = useState(false)
-
-    const onHover = () => {
-        setHover(!hover)
-    }
 
   return (
     <>

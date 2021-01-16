@@ -1,4 +1,4 @@
-export default [
+const experience = [
   {
     id: 1,
     title: 'Software Engineer',
@@ -14,3 +14,5 @@ export default [
     duties: [ 'Java RegEx (Regular Expressions) Data Mapper and Verifier', 'Accurately capture all required fields of a purchase order or an invoice data extraction template with the appropriate use of regular expressions', 'Test the functionality of each client portal and maintain their products and retail accounts database']
   },
 ];
+
+export default experience

@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useCallback} from 'react';
 import styled from 'styled-components';
 import { FaTimes } from 'react-icons/fa';
 import { SiHtml5, SiCss3, SiJavascript, SiReact } from 'react-icons/si';
+import { motion } from 'framer-motion';
 
 const ContactContainer = styled.div`
   position: fixed;
@@ -18,7 +19,7 @@ const ModalContainer = styled.div`
   margin: 5rem auto;
   width: 80%;
   height: 800px;
-  background: white;
+  background: transparent;
   display: flex;
 
   @media (max-width: 980px){
@@ -31,7 +32,7 @@ const ModalContainer = styled.div`
   }
 `
 
-const PanelOne = styled.div`
+const PanelOne = styled(motion.div)`
     padding: 48px;
     background-color: #f0edee;
     color: #2a3d45;
@@ -42,7 +43,7 @@ const PanelOne = styled.div`
   }
 `
 
-const PanelTwo = styled.div`
+const PanelTwo = styled(motion.div)`
   padding: 48px;
   background-color: #2a3d45;
   color: #f0edee;
@@ -166,23 +167,31 @@ const Contact = ({showModal, setShowModal}) => {
           {showModal && (
               <ContactContainer ref={modalRef} onClick={closeModal}>
                   <ModalContainer>
-                      <PanelOne>
-                          <AboutH2>Some Nuggets.</AboutH2>
-                          <AboutSub>Frontend Developer</AboutSub>
-                          <AboutP>I'm CJ, a licensed Electronics Engineer from <span>Mapua Institute of Technology</span> turned frontend developer with the <span>goal</span> to become a full stack developer. <span>Appreciation of design and technology</span> to build <span>valuable applications</span> is why I pursued this path.</AboutP>
-                      </PanelOne>
-                      <PanelTwo>
-                          <AboutH2>Reach Out.</AboutH2>
-                          <AboutSub>Kindly send me an email</AboutSub>
-                          <AboutP>Hello visitor! Thank you for viewing my portfolio website. If you have any question or inquiry, feel free to reach me at <span>cjdcelimen@gmail.com</span></AboutP>
-                          <AboutIcons>
-                              <AboutHtml />
-                              <AboutCss />
-                              <AboutJs />
-                              <AboutReact />
-                          </AboutIcons>
-                      </PanelTwo>
-                      <Close onClick={() => setShowModal(false)} />
+                    <PanelOne
+                      initial={{ y: '-100vh' }}
+                      animate={{ y: 0 }}
+                      transition={{ ease: 'easeInOut', duration: 0.2 }}
+                    >
+                      <AboutH2>Some Nuggets.</AboutH2>
+                      <AboutSub>Frontend Developer</AboutSub>
+                      <AboutP>I'm CJ, a licensed Electronics Engineer from <span>Mapua Institute of Technology</span> turned frontend developer with the <span>goal</span> to become a full stack developer. <span>Appreciation of design and technology</span> to build <span>valuable applications</span> is why I pursued this path.</AboutP>
+                    </PanelOne> 
+                    <PanelTwo
+                      initial={{ y: '100vh' }}
+                      animate={{ y: 0 }}
+                      transition={{ ease: 'easeInOut', duration: 0.2 }}
+                    >
+                      <AboutH2>Reach Out.</AboutH2>
+                      <AboutSub>Kindly send me an email</AboutSub>
+                      <AboutP>Hello visitor! Thank you for viewing my portfolio website. If you have any question or inquiry, feel free to reach me at <span>cjdcelimen@gmail.com</span></AboutP>
+                        <AboutIcons>
+                            <AboutHtml />
+                            <AboutCss />
+                            <AboutJs />
+                            <AboutReact />
+                        </AboutIcons>
+                    </PanelTwo>
+                    <Close onClick={() => setShowModal(false)} />
                   </ModalContainer>
               </ContactContainer>
           )}

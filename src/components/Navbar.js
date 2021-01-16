@@ -158,9 +158,9 @@ const Navbar = ({ toggle, showModal, setShowModal, openModal }) => {
         <>
             <Nav
                 scrollNav={scrollNav}
-                initial={{ y: -250 }}
+                initial={{ y: -1000 }}
                 animate={{ y: 0 }}
-                transition={{ type: 'spring', stiffness: 150 }}
+                transition={{ ease: 'easeInOut'}}
             >
                 <NavbarContainer>
                     <NavbarLogo to='/' onClick={toggleHome}>cjdc</NavbarLogo>
